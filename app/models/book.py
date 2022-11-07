@@ -24,6 +24,10 @@ class Book(db.Model):
 
         return book_dict
 
+    def update(self, request_body):
+        self.title = request_body["title"]
+        self.description = request_body["description"]
+
     @classmethod
     def from_dict(cls, book_data):
         new_book = Book(title=book_data["title"],
